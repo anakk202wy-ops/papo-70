@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Papo 70 — Chat ao vivo</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="logo">P<span>70</span></div>
+      <div><h1>Papo 70</h1><p>Converse em tempo real</p></div>
+      <div class="online"><i></i><strong id="count">0</strong>/70 online</div>
+    </header>
+
+    <section id="entry" class="entry">
+      <h2>Entre na conversa</h2>
+      <p>Escolha um apelido. Não use seu nome completo nem compartilhe dados pessoais.</p>
+      <form id="join-form">
+        <input id="nickname" maxlength="20" placeholder="Seu apelido" required autocomplete="nickname">
+        <button>Entrar no chat</button>
+      </form>
+      <small>Até 70 pessoas podem ficar conectadas ao mesmo tempo.</small>
+    </section>
+
+    <section id="chat" class="chat hidden">
+      <div class="chat-top"><div><strong>Sala geral</strong><span> · todos conversam juntos</span></div><span class="live">AO VIVO</span></div>
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="welcome-msg">Bem-vindo(a)! Seja respeitoso e não compartilhe informações pessoais.</div>
+      </div>
+      <form id="message-form" class="composer">
+        <input id="message" maxlength="500" placeholder="Escreva uma mensagem..." autocomplete="off" required>
+        <button aria-label="Enviar mensagem">Enviar</button>
+      </form>
+      <div class="safety">Não envie endereço, telefone, senhas ou fotos pessoais. Se alguém incomodar, saia da conversa.</div>
+    </section>
+    <footer>Projeto inicial de chat · mensagens são transmitidas aos usuários conectados.</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/client.js"></script>
+</body>
+</html>
